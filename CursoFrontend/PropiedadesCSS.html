@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card {
+            width: 500px;
+            height: 500px;
+            background-color: papayawhip;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .card p {
+            text-align: center;
+        }
+
+        .card p:nth-child(3) {
+            color: green;
+        } */
+
+        section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .card {
+            width: 500px;
+            height: 500px;
+            background-color: teal;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .yo {
+            width: 150px;
+            height: 200px;
+            position: absolute;
+            top: 200px;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .yo img {
+            width: 100%;
+        }
+
+        .info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        p {
+            border: 1px solid black;
+            margin-top: 70px;
+        }
+
+        button {
+            border-radius: 10;
+        }
+    </style>
+</head>
+<body>
+    <!-- <section>
+        <div class="card">
+            <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wwuT?ver=466b" alt="cancun">
+            <p>esto es mexico!</p>
+            <p>Aqui se puede vivir siendo nomada digital</p>
+        </div>
+    </section> -->
+
+    <section>
+        <div class="card">
+            <img src="https://wallpapertag.com/wallpaper/middle/4/6/7/332192-most-popular-persona-3-wallpaper-1920x1080-for-tablet.jpg" alt="">
+            <div class="info">
+                <p>My name is Geovanny Giorgio but everyone calls me Giorgio</p>
+                <button id="boton">No me toques ahi</button>
+            </div>
+        </div>
+        <div class="yo">
+            <img src="https://th.bing.com/th/id/R.47da8d245ff3d4616a7ef99b7e58f2fb?rik=BWc51CNV3HyhLA&pid=ImgRaw&r=0" alt="">
+        </div>
+    </section>
+    <script>
+        function hola() {
+            alert("no me toque >:V")
+        }
+        var el = document.getElementById("boton")
+        el.addEventListener("click", hola)
+
+    </script>
+</body>
+</html>

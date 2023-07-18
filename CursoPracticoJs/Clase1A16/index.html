@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .drawing {
+            width: 500px;
+            height: 500px;
+            position: relative;
+        }
+
+        .colores {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="titulo">Manipulacion del DOM basico</h1>
+    
+    <!-- los atributos onchange y onclick sirven para ejecutar codigo JS en html
+    onchange sirve mas para inputs de tipo encuesta y onclick para elementos de click 
+
+    <input id="calculo2" onchange="console.log('has editado esto');" type="text" placeholder="esto es un placeholder">
+    <button id="btnCalcular" onclick="console.log(btonOnClick());">Calcular</button>
+    -->
+
+    <form action="" id="form">
+        <input id="calculo2" type="text" placeholder="esto es un placeholder">
+        <input id="calculo1" type="text" placeholder="esto es un placeholder">
+        <!-- en un form, el ultimo boton obtiene el evento submit que recarga la pagina-->
+        <button  id="btnCalcular">Calcular</button>
+        <!-- <button type="button" id="btnCalcular">Calcular</button> -->
+        <p id="result"></p>
+    </form>
+
+    <section class="drawing">
+        <div class="colores"></div>
+    </section>
+   
+
+    <script src="script2.js"></script>
+</body>
+</html>
