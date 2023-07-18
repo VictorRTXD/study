@@ -3,26 +3,39 @@ const desktopMenu = document.querySelector(".desktop-menu");
 const menuHamIcon = document.querySelector(".menu");
 const mobileMenu = document.querySelector(".mobile-menu");
 const carMenuIcon = document.querySelector(".navbar-shopping-cart");
-const shoppingCartContainer = document.querySelector("#shoppingCartContainer");
+const shoppingCartContainer = document.querySelector(".product-detail-shopping-Cart");
 const cardsContainer = document.querySelector(".cards-container");
+const productDetailCloseIcon = document.querySelector(".product-detail-close")
+const productDetail = document.querySelector(".product-detail")
 
 //toggle significa  alternar y no sirve para alternar el funcionamiento de una clase
 menuEmail.addEventListener("click", toggleDesktopMenu);
 menuHamIcon.addEventListener("click", toggleBurgerMenu);
-carMenuIcon.addEventListener("click", toggleCarMenuIcon)
+carMenuIcon.addEventListener("click", toggleCarMenuIcon);
+productDetailCloseIcon.addEventListener("click", toggleProductDetail)
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle("inactive");
     shoppingCartContainer.classList.add("inactive");
+    productDetail.classList.add("inactive");
 }
 
 function toggleBurgerMenu() {
     mobileMenu.classList.toggle("inactive");
     shoppingCartContainer.classList.add("inactive");
+    productDetail.classList.add("inactive");
 }
 
 function toggleCarMenuIcon() {
     shoppingCartContainer.classList.toggle("inactive");
+    mobileMenu.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+    productDetail.classList.add("inactive");
+}
+
+function toggleProductDetail() {
+    productDetail.classList.toggle("inactive");
+    shoppingCartContainer.classList.add("inactive");
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
 }
