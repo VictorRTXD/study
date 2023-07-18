@@ -155,7 +155,7 @@ nav {
 }
 
 /* aside product detial y carrito*/
-.product-detail {
+.aside {
   background-color: var(--white);
   width: 360px;
   padding: 0 24px;
@@ -274,6 +274,9 @@ nav {
   color: var(--very-light-pink);
 }
 
+/*  */
+
+
 @media (max-width: 640px) {
   .menu {
     display: block;
@@ -290,7 +293,7 @@ nav {
     display: none;
   }
 
-  .product-detail {
+  .aside {
     width: 100%;
   }
 
