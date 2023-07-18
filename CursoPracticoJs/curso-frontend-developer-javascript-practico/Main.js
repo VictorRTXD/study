@@ -84,5 +84,3 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList);
-
-dsfsadf
