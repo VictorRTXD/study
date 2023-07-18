@@ -34,7 +34,14 @@ function toggleCarMenuIcon() {
 }
 
 function toggleProductDetail() {
-    productDetail.classList.toggle("inactive");
+    productDetail.classList.add("inactive");
+    shoppingCartContainer.classList.add("inactive");
+    mobileMenu.classList.add("inactive");
+    desktopMenu.classList.add("inactive");
+}
+
+function openProductDetailAside() {
+    productDetail.classList.remove("inactive");
     shoppingCartContainer.classList.add("inactive");
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
@@ -65,6 +72,7 @@ function renderProducts(arr) {
     
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
+        productImg.addEventListener("click", openProductDetailAside);
     
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
