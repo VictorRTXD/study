@@ -38,8 +38,8 @@ title.classList.remove("tituleishon");
 //title.classList.contains("tituleishon"); revuelve true or false si tiene la clase o no
 
 input.value = "modificado con JS";
+console.log(input.getAttribute("value") + "aasfasf");
 
 const img = document.createElement("img");
-img.setAttribute("src", "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wtd4?ver=a738")
-p2.innerText = "";
-p2.append(img) //apprend y apprendchild (talvez) agregan contenido despues del contenido original
+img.setAttribute("src", "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wtd4?ver=a738");
+title.append(img) //apprend y apprendchild (talvez) agregan contenido despues del contenido original

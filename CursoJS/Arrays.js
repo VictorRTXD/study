@@ -57,3 +57,11 @@ var articulosBaratos = articulos.some(function name(articulo) {
 })
 
 articulosBaratos
+
+
+let arrayYolo = articulos.filter(function(articulo) {
+    return articulo.costo <= 500;
+})
+
+console.log("a");
+console.log(arrayYolo);
