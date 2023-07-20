@@ -5,8 +5,12 @@ const mobileMenu = document.querySelector(".mobile-menu");
 const carMenuIcon = document.querySelector(".navbar-shopping-cart");
 const shoppingCartContainer = document.querySelector(".product-detail-shopping-Cart");
 const cardsContainer = document.querySelector(".cards-container");
-const productDetailCloseIcon = document.querySelector(".product-detail-close")
-const productDetail = document.querySelector(".product-detail")
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
+const productDetail = document.querySelector(".product-detail");
+let countProducts = 0;
+const productDetailImg = document.querySelector(".product-detail-img");
+const productDetailName = document.querySelector(".product-detail-name");
+const productDetailCost = document.querySelector(".product-detail-cost");
 
 //toggle significa  alternar y no sirve para alternar el funcionamiento de una clase
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -45,13 +49,20 @@ function openProductDetailAside() {
     shoppingCartContainer.classList.add("inactive");
     mobileMenu.classList.add("inactive");
     desktopMenu.classList.add("inactive");
+
+    //Con event.target.getAttribute("stc") puedo obtener el src al clickear una imagen para ponerlo en el productDetail
+    const clickedImageSrc = event.target.getAttribute("src");
+    productDetailImg.setAttribute("src", clickedImageSrc);
+
+    //con este metodo obtengo el costo y nombre de producto
+    productDetailCost.innerText = event.target.nextElementSibling.innerText;
 }
 
 const productList = [];
 productList.push({
     name : "bike",
     price : 120,
-    image : "https://th.bing.com/th?id=OP.6PRy0P1TmjuW9Q474C474&w=300&h=300&o=5&pid=21.1"
+    image : "https://th.bing.com/th?id=OP.6PRy0P1TmjuW9Q474C474&w=300&h=300&o=5&,pid=21.1"
 });
 productList.push({
     name : "laptop gamer msi",
@@ -73,6 +84,7 @@ function renderProducts(arr) {
         const productImg = document.createElement("img");
         productImg.setAttribute("src", product.image);
         productImg.addEventListener("click", openProductDetailAside);
+        productImg.style.cursor = "pointer";
     
         const productInfo = document.createElement("div");
         productInfo.classList.add("product-info");
@@ -81,6 +93,7 @@ function renderProducts(arr) {
     
         const productPrice = document.createElement("p");
         productPrice.innerText = "$" + product.price;
+
         const productName = document.createElement("p");
         productName.innerText = product.name;
     
@@ -88,6 +101,7 @@ function renderProducts(arr) {
         productInfoDiv.appendChild(productName);
     
         const productInfoFigure = document.createElement("figure");
+        /*continuar aqui para agregar intercatividad a los botones */
     
         const productImgCard = document.createElement("img");
         productImgCard .setAttribute("src", "./icons/bt_add_to_cart.svg");
