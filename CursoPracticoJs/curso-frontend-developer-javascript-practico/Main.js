@@ -11,6 +11,7 @@ let countProducts = 0;
 const productDetailImg = document.querySelector(".product-detail-img");
 const productDetailName = document.querySelector(".product-detail-name");
 const productDetailCost = document.querySelector(".product-detail-cost");
+const elementInCart = document.querySelector(".elements-in-cart");
 
 //toggle significa  alternar y no sirve para alternar el funcionamiento de una clase
 menuEmail.addEventListener("click", toggleDesktopMenu);
@@ -58,6 +59,30 @@ function openProductDetailAside() {
     productDetailCost.innerText = event.target.nextElementSibling.innerText;
 }
 
+function addToCart() {
+    const shoppingCart = document.querySelector(".new-shopping-cart");
+    const divGeneralContainer = document.createElement("div");
+    divGeneralContainer.classList.add("shopping-cart");
+
+    const figure = document.createElement("figure");
+    const figurita = document.createElement("img");
+    figurita.setAttribute("src", product.image);
+    figure.appendChild(figurita);
+    const name = document.createElement("p");
+    name.innerText = product.name;
+    const price = document.createElement("p");
+    price.innerText = product.price;
+    const close = document.createElement("img");
+    close.setAttribute("src", "./icons/icon_close.png")
+
+    divGeneralContainer.appendChild(figure);
+    divGeneralContainer.appendChild(name);
+    divGeneralContainer.appendChild(price);
+    divGeneralContainer.appendChild(close);
+
+    shoppingCart.appendChild(divGeneralContainer);
+}
+
 const productList = [];
 productList.push({
     name : "bike",
@@ -101,12 +126,14 @@ function renderProducts(arr) {
         productInfoDiv.appendChild(productName);
     
         const productInfoFigure = document.createElement("figure");
-        /*continuar aqui para agregar intercatividad a los botones */
     
         const productImgCard = document.createElement("img");
-        productImgCard .setAttribute("src", "./icons/bt_add_to_cart.svg");
+        productImgCard.setAttribute("src", "./icons/bt_add_to_cart.svg");
     
         productInfoFigure.appendChild(productImgCard);
+        productImgCard.classList.add("cart-icon-product-list");
+        productImgCard.style.cursor = "pointer";
+        productImgCard.addEventListener("click", addToCart)
     
         productInfo.appendChild(productInfoDiv);
         productInfo.appendChild(productInfoFigure);
