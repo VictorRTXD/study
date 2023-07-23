@@ -12,5 +12,6 @@
     "learning"
   ],
   "author": "Victor Macias (maciasvictoreduardo5736@gmail.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }
