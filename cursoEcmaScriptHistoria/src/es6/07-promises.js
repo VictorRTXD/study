@@ -19,13 +19,17 @@ const doAsyncStuffWithPromises = (numero1, numero2) => {
     const resultado = numero1 + numero2;
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(resultado)
+            if (resultado == 0) {
+                reject("es igual a 0, obvio")
+            } else {
+                resolve(resultado)
+            }
         }, 500);
     })
 }
 
 doAsyncStuffWithPromises(1, 4)
-    .then(result => console.log(result));
+    .then(result => console.log(result)).catch(error => console.log(error));
 
 
 //callbacks
