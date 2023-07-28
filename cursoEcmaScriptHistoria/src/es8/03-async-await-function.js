@@ -37,3 +37,21 @@ const doAsyncSecondFunction = async() => {
 }
 
 doAsyncSecondFunction();
+
+
+const thirdFunction = () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("funcionando");
+        }, 200);
+    })
+}
+
+thirdFunction();
+
+const thirdMiniFunciton = async() => {
+    const status = await thirdFunction();
+    console.log("a");
+    console.log(status);
+}
+thirdMiniFunciton()
