@@ -8,4 +8,3 @@ const promise3 = new Promise((resolve, reject) => resolve("la promesa 3 se rifo"
 
 Promise.allSettled([promise1, promise2, promise3])
     .then(response => console.log(response))
-    .catch(reject => console.log(reject));
