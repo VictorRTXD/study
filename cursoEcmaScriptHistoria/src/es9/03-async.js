@@ -18,3 +18,12 @@ async function arrayOfNames(arr) {
 
 const names = arrayOfNames(["victor, karol, mini, luna"]);
 console.log("after");
+
+const precios = [5454, 15,56151,5158484, 451518 ,5789];
+
+async function listadorDePrecios(array) {
+    for await (let iterator of array) {
+        console.log(iterator);
+    }
+}
+listadorDePrecios(precios)

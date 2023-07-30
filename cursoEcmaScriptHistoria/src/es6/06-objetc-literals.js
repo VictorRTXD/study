@@ -16,6 +16,10 @@ function newUser(user, age, country, uid) {
         country,
         id : uid
     };
+
+    pepear = function() {
+        
+    }
 }
 let yo = newUser("victor", 20, "mx", 1);
 console.log(yo);
