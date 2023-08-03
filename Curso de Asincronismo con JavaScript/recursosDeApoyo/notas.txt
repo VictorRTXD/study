@@ -1,0 +1,98 @@
+** Clase 2, asincronismo**
+
+Apropia los conceptos fundamentales de asincronismo con JavaScript, 
+aplica sus diferentes estructuras y desarrolla soluciones asíncronas. 
+
+Aprende los conceptos de asincronismo con JavaScript.
+Entiende los conceptos de Event Loop, Callbacks y promesas.
+Aplica funciones asíncronas a tus proyectos para interactuar con una API.
+Crea una landing page y realiza el despliegue en GitHub Pages.
+
+* Que es el asincronismo?
+DEFINICION MASTER: La asincronía de JavaScript consiste en delegar algunas 
+tareas
+
+Los lenguajes de programacion son sincronicos por si mismos,
+JS es sincrono por defecto y tiene un solo subpreceso, un solo hilo para
+trabajar, pero no es bloqueante, con un bucle de eventos (concurrencia).
+
+JS es single-threaded: aun con multiples procesadores, solo se puede 
+ejecutar tareas en un solo hilo, llamado hilo pricnipal.
+
+Bloqueante: una tarea no devuelve el control hasta que se ha completado,
+ejemplo, cuando hacemos el alert muestra una ventana que si no hacemos "ok",
+la app no avanza.
+
+No Bloqueante: Una tarea se devuelve inmediatamente con independecia del 
+resultado. Si se completo, devuelve los datos, si no, un error.
+
+Sincrono: las tareas se ejecutan de forma secuencial, se debe esperar
+a que se complete para continuar con la siguiente tarea.
+
+Asincrono: Las tareas pueden ser realizadas mas tarde, lo que hace 
+posible que una respuesta sea procesada en diferido. En el ambito de JS,
+realizar tareas sin bloquear la ejecucion del codigo principal. Cuando una 
+operacion se realiza de froma asincrona, el programa puede continuar 
+ejecutando otras tareas mientras espera que la operacion asincrona se 
+complete
+
+concurrencia JS: La concurrencia es la capacidad de un algoritmo o 
+programa para ejecutar más de una tarea a la vez. El concepto es similar 
+al procesamiento paralelo, pero con la posibilidad de que muchos trabajos 
+independientes hagan diferentes cosas a la vez en lugar de ejecutar 
+el mismo trabajo utiliza un modelo de concurrencia basado en un "loop de 
+eventos", tambien llamado event loop.
+
+Event loop: el bucle de eventos es un patron de diseño que espera
+y distribuye eventos o mensajes en un programa.
+
+* Formas manejar asincronismo 
+Callbacks: una funcion que se pasa como argumento de otra funcion y que 
+sera invocada.
+
+Promesas: funciones no-bloqueantes y asincornas la cual puede retornar un 
+valor ahora, en el futuro o nunca (es6).
+
+Async/await: permite estructurar una funcion asincrona sin bloqueo de una
+manera similar a una funcion sincronica ordinaria, usa sintaxis
+mas entendible, amigable, facil sin recurrir a problemas que ocurrian
+con Callbacks (es2017).
+
+JS acaba de convertirse en multi-threaded con la capacidad de ralizar 
+multiples tareas simultaneamente!.
+Esto cambia nuestra definicion de JS...
+
+JS es: asincrono y no bloqueante con un bucle de eventos (concurrencia)
+implementado con un unico hilo para sus interfaces I/O.
+
+Mi explicacion: JS es un lenguaje asincrono (que puede ejecutar funciones
+no bloqueantes) que se pueden ejecutar antes, al mismo tiempo o despues
+y que contiene un bucle de eventos (event loop o concurrencia) en el que 
+el codigo principal esta en un unico hilo principal para sus 
+interfaces I/O
+
+
+** Clase 3 Event loop **
+Event loop: Un bucle de eventos, es un patron de diseño que espera y distribuye eventos o 
+mensajes en un programa.
+
+Memory heap: Los objetos son asignados a un monticulo (espacio grande
+en memoria no organizado).
+
+Call stack: apila de  forma organizada las instrucciones de nuestro programa
+
+Task queue: cola de tareas, se maneja la concurrencia, se agregan las tareas 
+que ya estan listas para pasar al stack. El stack debe estar vacio primero.
+
+Micro task queue: las promesas tienen otra forma de ejecutarse y una 
+prioridad superior.
+
+Web APIs: JS del lado del cliente: setTimeout, XMLHttpRequest, File Reader, DOM.
+
+Event Loop: tarea asignada para mover del task queue al stack, solo si el 
+stack esta vacio.
+
+console.log(1);
+console.log(2);
+setTimeout(() => console.log("torta"), 2000);
+console.log(4);
