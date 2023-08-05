@@ -54,4 +54,4 @@ const thirdMiniFunciton = async() => {
     console.log("a");
     console.log(status);
 }
-thirdMiniFunciton()
+thirdMiniFunciton();

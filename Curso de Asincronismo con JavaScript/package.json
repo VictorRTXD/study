@@ -10,5 +10,6 @@
   "license": "MIT",
   "dependencies": {
     "xmlhttprequest": "^1.8.0"
-  }
+  },
+  "type": "module"
 }
