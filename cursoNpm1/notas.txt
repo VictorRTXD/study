@@ -1,0 +1,13 @@
+Te damos la bienvenida al Curso de NPM: Gestión de Paquetes y Dependencias en JavaScript.
+
+En este curso aprenderás a: * Qué es NPM, dependencias y paquetes * Cómo instalar dependencias a un proyecto * Cómo compartir y crear paquetes para la comunidad * Cómo funcionan los paquetes públicos y privados en NPM
+
+------------------
+
+1995: nace JS inicia travesia de JS, ahora es lo mas popular con miles de apps.
+
+2009: nace Node.js, propuesta de llevar en navegadores y cualquier lugar donde se pueda correr, y tabmien nace el gestor de paquetes npm, es la forma en que la comunidad puede crear herramientas y compartirlas.
+
+que son gestores de dependencias? 
+organizar, administrar y tener serie de herramientas a lo largo de este recurso para admininistrar  paquetes y recursos que utilizaremos en nuestros proyectos dandonos ventaja en el desarrollo, aprovechando que en vez de nosotros crear nuestras soluciones, utilizar los que ya ha creado la comunidad que ya han sido probados y validados asi siendo mas agilies aprovechando esto en nuestras apps. No debemos de abusar de esta herramienta porque tambien tiene un recurso administrativo y seguimiento puede llegar a tener bugs, hay que tener presente que tendremos paquetes y modulos que searan usados e instalados en proyectos segun el caso, podemos tener paquetes que solo funcionen para node o para toda la arquitectura web, ya viene incluido en node.
+vamos a tener un CLI (command line client), nos ayudara a trabajar de la forma correcta con comandos.
