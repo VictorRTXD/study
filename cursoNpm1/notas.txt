@@ -11,3 +11,42 @@ En este curso aprenderás a: * Qué es NPM, dependencias y paquetes * Cómo inst
 que son gestores de dependencias? 
 organizar, administrar y tener serie de herramientas a lo largo de este recurso para admininistrar  paquetes y recursos que utilizaremos en nuestros proyectos dandonos ventaja en el desarrollo, aprovechando que en vez de nosotros crear nuestras soluciones, utilizar los que ya ha creado la comunidad que ya han sido probados y validados asi siendo mas agilies aprovechando esto en nuestras apps. No debemos de abusar de esta herramienta porque tambien tiene un recurso administrativo y seguimiento puede llegar a tener bugs, hay que tener presente que tendremos paquetes y modulos que searan usados e instalados en proyectos segun el caso, podemos tener paquetes que solo funcionen para node o para toda la arquitectura web, ya viene incluido en node.
 vamos a tener un CLI (command line client), nos ayudara a trabajar de la forma correcta con comandos.
+
+-------------------
+
+El archivo package.json estaría estructurado inicialmente por las siguientes propiedades:
+
+"name": Indica el nombre del proyecto.
+"version": Indica la versión del proyecto.
+"description": Indica una breve descripción del proyecto.
+"main": Indica el archivo principal del proyecto.
+"scripts": Indica los comandos a ejecutar del proyecto (no te preocupes por el comando test por ahora).
+"keywords": Indica las palabras clave del proyecto.
+"author": Indica el nombre y dirección de correo electrónico del propietario del proyecto.
+"license": Indica la licencia del proyecto.
+
+------------------------------------------
+Existen tres tipos de dependencias: locales, desarrollo y globales.
+
+Cómo instalar dependencias locales
+Para instalar una dependencia local, utiliza uno de los siguientes comandos, donde es el nombre del paquete.
+
+Qué son las dependencias de desarrollo
+Las dependencias de desarrollo son aquellas que no son obligatorias para el proyecto, es decir, sin estas la aplicación servirá. Estas dependencias ofrecen una ayuda para construir código de forma óptima, por ejemplo, formatear el código, agregar estilos, levantar un servidor para observar los cambios.
+
+Qué son las dependencias globales
+Las dependencias globales son aquellas que están disponibles para todos los proyectos en tu computador
+
+ejemplo de instalaciones de dependencias:
+{npm install moment}: con esto instalamos una dependencia 
+
+{npm install eslint --save-dev || npm install eslint -D}: dependencia que solo va a ser utilizada en el entorno de desarollo y testeo y jamas en produccion
+
+{npm install react --save || npm install react -S}: dependencias que seran llevadas a produccion y hacer correr la aplicacion.
+
+{npm install -g cowsay}: instalar paquetes globales a todo el sistema operativo
+
+{npm list}: nos muestra los paquetes que hemos instalado
+
+{npm list -g}: Ver lista de paquetes globlales
+
