@@ -4,7 +4,9 @@
   "description": "Aprendiendo de npm",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js", 
+    "dosComandos": "node src/index.js && node src/index.js"
   },
   "keywords": [
     "JS",
@@ -15,6 +17,7 @@
   "author": "VictorRTXD",
   "license": "MIT",
   "dependencies": {
+    "json-server": "^0.17.3",
     "moment": "^2.29.4",
     "react": "^18.2.0"
   },

@@ -48,5 +48,33 @@ ejemplo de instalaciones de dependencias:
 
 {npm list}: nos muestra los paquetes que hemos instalado
 
-{npm list -g}: Ver lista de paquetes globlales
+{npm list -g}: Ver lista de paquetes globlales 
 
+-----------------------------------------
+En ciertas situaciones es necesario isntalar una version especifica de un paquete ya 
+sea porque el proyecto no puede actualizarse a versiones recientes o porque el equipo necesita trabajar sobre una misma version.
+
+{npm install eslint -o}: Instalar una dependencia opcional
+
+Cuando estes trabajando con multiples dependencias en un proyecto, pueden tener un conflicto, al tener una dependencia en comun con versiones distintas
+
+{npm install react-dom --dry-run}: sirve para simular una instalacion sin descargar nada
+
+{npm install package-name@0.15.0 || npm install package-name@latest}:  Instalar la versión especifica de un paquete. Si luego se quiere instalar la versión más reciente se usa.
+
+{npm install}: Para instalar las dependencias de produccion y desarrollo de un proyecto clonado
+
+--------------------------------------------
+Dentro de npm podremos correr comandos o scripts dentro de package.json en el apartado de scripts, aqui tambien utilizaras para crear comandos que optimicen el desarrollo de tu app.
+
+para correr tus comandos, hay que poner el nombre del comando seguido de la ruta del archivo .js con el codigo a ejecutar
+
+start: {node src/index.js}: como hacer un script en package.json
+
+dosComandos: {node src/index.js && node src/index.js}: los && ejecutan mas comandos en uno, como descargando elemento de una API y luego procesarla
+
+{npm run start}: ejemplo para correr un script creado en la consola
+
+NPX: node package execute: nos permite ejecutar paquetes sin instalarlos. 
+
+{npx create-react-app my-app}: ejemplo de uso de npx
