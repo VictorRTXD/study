@@ -78,3 +78,40 @@ dosComandos: {node src/index.js && node src/index.js}: los && ejecutan mas coman
 NPX: node package execute: nos permite ejecutar paquetes sin instalarlos. 
 
 {npx create-react-app my-app}: ejemplo de uso de npx
+
+------------------------------------------------
+Ahora aprenderemos a acutalizar dependencias.
+
+{npm outdate}: muestra cuales son las dependencias que han tenido actualizaciones o cambios
+
+{npm update}: Para actualizar todas las dependencias utiliza el siguiente comando, Ten en cuenta que actualizar varios paquetes no es recomendable, solamente deberías actualizar un paquete si estás muy seguro de que no afectará al proyecto y que realizaste los cambios pertinentes.
+------------------------------------------------
+La seguridad de tu proyecto puede ser vulnerada por paquetes desactualizados. Al momento de instalar tus paquetes con el comando npm install muestra una serie de advertencias (NPM WARN) de las dependencias desactualizadas.
+
+{npm audit}:  muestra una descripción de las dependencias instaladas. Si se encuentran vulnerabilidades, se calculará el impacto al proyecto.
+
+{npm audit --json}: muestra una descripción de las dependencias instaladas. Si se encuentran vulnerabilidades, se calculará el impacto al proyecto, pero en forma de json mas detallado.
+
+{npm audit fix}: proporciona una actualización de los paquetes, similar al comando npm update <paquete>
+
+{npm audit fix --force}: proporciona una actualización de los subpaquetes de cada paquete, en todos sus niveles de profundidad.
+-----------------------------------------------------
+
+Conocer cómo eliminar dependencias, también es importante para mantener tus proyectos sin paquetes que no aporten la solución a tu problema, que ya no sean actualizados, o que exista una mejor implementación.
+
+{npm uninstall <paquete>}: elimina el paquete.
+
+Tambien se puede eliminar una dependecia eliminandolo desde VSCODE en el archivo package.json, luego es necesario actualizar el directorio de node_modules:
+
+{rm -rf node_modules}: se elimina todos los modulos
+{npm install}: regresar todo lo que habiamos eliminado, sin contar las que borramos manualmente en vscode
+
+{npm run build}: se refiere a ejecutar un script de construcción que combina y minifica los archivos del proyecto, convirtiéndolos en una versión lista para producción. Esto puede incluir acciones como la eliminación de comentarios y espacios en blanco, la compresión de imágenes y la transpilación de código moderno a una versión compatible con navegadores antiguos.
+
+{npm run build --dd}: el flag --dd muestra mas info de forma verbose. Tambien muestra los pasos ejecutados por un comando de NPM
+
+{npm ci}: muestra en consola mensajes de librerias deprecadas y puede sincronizar el package con package-lock
+
+Que es package-lock??: contiene info necesaria de dependencias, dependencias de dearrollo y dependencias que estan dentro de otras dependencias, es una forma rapida para identificar los elementos que requiere un proyecto e instalarlos
+
+
