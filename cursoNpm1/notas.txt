@@ -114,4 +114,36 @@ Tambien se puede eliminar una dependecia eliminandolo desde VSCODE en el archivo
 
 Que es package-lock??: contiene info necesaria de dependencias, dependencias de dearrollo y dependencias que estan dentro de otras dependencias, es una forma rapida para identificar los elementos que requiere un proyecto e instalarlos
 
+-------------------------------------------------------------------------------
+Para crear tu propio paquete npm se necesita hacer varios pasos:
+1. Buscar si existe alguna dependencia en la pagina NPN que se llame como nuestro proyecto, para evitar problemas
+2. Crear un repositorio en github con el nombre de la dependencia que se va a crear
+3. hacer un clone del repositorio, escribir el comando npm init -y, hacer un archivo js con la logica y proposito del paquete.
+4. crear una carpeta bin con un archivo llamado global.js con una variable que haga la importacion de la funcion del archivo 
+5. Poner en el archivo package.json: 
+"
+  "bin": {
+    "randomStringPlatziVictor": "bin/global.js"
+  },
+  "preferGlobal": true
+"
 
+6. luego tenemos poner el comando {npm link} para hacer reconocer nuestro paquete en npm
+7. luego se simula la instalacion con npm install <la ruta de la carpeta con pwd>
+8. despues de la instalacion, coloca el nombre de la carpeta para que se ejecute
+9. sigue vincular una cuenta de npm para poderlo subir, usa el comando {npm adduser}
+10. ingresamos {npm publish}
+
+--------------------------------------------
+
+El versionado semántico consiste en la estructura que debemos seguir para colocar una versión a nuestro paquete.
+El versionado semántico está conformado por tres valores:
+
+Major: el valor que muestra la versión que contiene los cambios importantes del paquete
+Minor: el valor que muestra la versión que contiene los cambios en funcionalidades, pero no representan un cambio significativo
+Patch: el valor que muestra la versión que contiene cambios rápidos para solucionar problemas de seguridad o bugs
+
+asegurate de haber hecho los cambios y haberlos subido a github
+
+{npm version 1.1.1}: sirve para acutalizar la version
+{npm publish}: no olvides volver a publicar despues de una modificacion de version
