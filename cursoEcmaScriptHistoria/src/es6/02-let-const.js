@@ -35,3 +35,8 @@ cholo = 6
 var cholo
 var cholo = 9
 console.log(cholo);
+
+pele = 9
+let pele;
+pele = 12;
+console.log(pele);

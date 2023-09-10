@@ -1,0 +1,14 @@
+.max-w-2xl {
+    background-color: whitesmoke;
+}
+
+.ld {
+    width: 90px;
+    height: 45px;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

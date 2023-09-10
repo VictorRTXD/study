@@ -1,4 +1,4 @@
-sum = (valor1, valor2) => {
+let sum = (valor1, valor2) => {
     return valor1 + valor2;
 }
 

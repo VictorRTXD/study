@@ -1,0 +1,15 @@
+{
+  "name": "landingpageasync",
+  "version": "1.0.0",
+  "description": "Un blog increible mio para practicar el uso de Git y Github de Platzi\r **super mega strong**\r no se que poner pero quiero ayudar desde la toshiba\r todo sea por mi aprendizaje\r odio el qwerty en español\r > auxilio me desmayo pero hoy en dia ya no me desmayo porque tome el curso de git y github y me siento mas poderoso\r > - niñita",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
+}
