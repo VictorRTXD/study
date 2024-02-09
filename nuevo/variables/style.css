@@ -1,0 +1,46 @@
+:root {
+    --primary-color: teal;
+    --secundary-color: lightblue;
+    --font: 1.8rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+header {
+    width: 100vw;
+    height: 15vh;
+    background-color: var(--primary-color);
+}
+
+main {
+    width: 100vw;
+    height: 70vh;
+    font-size: var(--font);
+}
+
+h1 {
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
+footer {
+    width: 100vw;
+    height: 15vh;
+    background-color: var(--secundary-color);
+}
+
+@media (max-widht: 1023px) {
+    /* contenido */
+}
+
+@media (min-widht: 1024px) {
+    /* contenido */
+}
