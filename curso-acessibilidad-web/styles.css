@@ -54,6 +54,20 @@ body {
   flex-direction: column;
 }
 
+.skip-link {
+  font-size: 0%;
+}
+
+.skip-link:focus, .skip-link:active {
+  background-color: var(--verde);
+  border-radius: 5px;
+  color: var(--gris-oscuro);
+  font-family: var(--secondary-font);
+  font-size: 16px;
+  margin: 16px 0 8px;
+  text-decoration: none;
+}
+
 .header {
   color: var(--blanco);
   font-family: var(--main-font);
@@ -104,8 +118,13 @@ nav {
   width: 33%;
 }
 
-.nav-item:hover {
+.nav-item a:focus {
+  outline: none;
+}
+
+.nav-item:focus-within, .nav-item:hover, .nav-item:hover a{
   background-color: var(--verde);
+  cursor: pointer;
 }
 
 .intro {
@@ -119,6 +138,24 @@ nav {
   justify-content: space-around;
   margin: 32px auto 0;
   width: 20%;
+}
+
+.social-media li a {
+  align-items: center;
+  display: flex;
+  color: var(--blanco);
+  font-family: var(--secondary-font);
+  text-decoration: none;
+}
+
+.social-media li a:focus {
+  outline: none;
+}
+
+/* esto nos va a ayudar a mejorar a lo que parecen bordes */
+.social-media li:focus-within {
+  outline: 3px solid var(--verde);
+  padding: 8px;
 }
 
 .carousel {
@@ -138,6 +175,15 @@ nav {
   width: 1500px;
 }
 
+.project-container button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.project-container button:focus-within {
+  outline: 3px solid var(--verde);
+}
 .project {
   border-radius: 5px;
   border: 2px solid #000;
@@ -179,6 +225,10 @@ nav {
   width: 75px;
 }
 
+.arrow:focus-within {
+  outline: 3px solid var(--verde);
+}
+
 .arrow:hover {
   transform: scale(1.1);
 }
@@ -215,8 +265,12 @@ nav {
 }
 
 input {
-  outline: none;
   width: 100%;
+}
+
+input:focus {
+  outline: 3px solid var(--verde);
+  padding: 8px;
 }
 
 .send-button {
