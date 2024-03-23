@@ -47,25 +47,30 @@ img {
   --verde: #7ac943;
 }
 
-body {
+body, header, section {
   align-items: center;
   background-color: var(--gris-medio);
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .skip-link {
-  font-size: 0%;
+  height: 0;
 }
 
-.skip-link:focus, .skip-link:active {
-  background-color: var(--verde);
+.skip-link:focus,
+.skip-link:active {
+  background: var(--verde);
   border-radius: 5px;
   color: var(--gris-oscuro);
   font-family: var(--secondary-font);
-  font-size: 16px;
+  height: auto;
   margin: 16px 0 8px;
+  padding: 8px;
   text-decoration: none;
+  border: 5px solid var(--gris-oscuro);
+  outline: 3px solid var(--verde);
 }
 
 .header {
@@ -94,18 +99,18 @@ nav {
   width: 100%;
 }
 
-.nav-item a{
-  text-decoration: none;
-  color: var(--blanco);
-}
-
 .navigation {
   color: var(--blanco);
   cursor: pointer;
   display: flex;
-  flex-direction: row;
-  margin: 24px 0;
+  justify-content: space-around;
+  margin: 24px auto;
   width: 50%;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: var(--blanco);
 }
 
 .nav-item {
@@ -118,18 +123,26 @@ nav {
   width: 33%;
 }
 
-.nav-item a:focus {
-  outline: none;
-}
-
-.nav-item:focus-within, .nav-item:hover, .nav-item:hover a{
+.nav-item:hover,
+.nav-item:hover a {
   background-color: var(--verde);
+  color: var(--gris-oscuro);
   cursor: pointer;
 }
 
+.nav-item:focus-within {
+ background-color: var(--verde); 
+}
+
+.nav-item a:focus {
+  outline: none;
+  color: var(--gris-oscuro);
+}
+
 .intro {
-  margin: 0 196px;
+  margin: 24px 196px 0;
   font-family: var(--secondary-font);
+  color: var(--blanco);
 }
 
 .social-media {
@@ -137,7 +150,6 @@ nav {
   display: flex;
   justify-content: space-around;
   margin: 32px auto 0;
-  width: 20%;
 }
 
 .social-media li a {
@@ -148,31 +160,42 @@ nav {
   text-decoration: none;
 }
 
-.social-media li a:focus {
+.social-media li a:focus{
   outline: none;
 }
 
-/* esto nos va a ayudar a mejorar a lo que parecen bordes */
 .social-media li:focus-within {
   outline: 3px solid var(--verde);
   padding: 8px;
 }
 
+.social-link-text {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
 .carousel {
   align-items: center;
+  justify-content: center;
   display: flex;
   margin: 48px 0 64px;
+  width: 100vw;
 }
 
 .window {
   overflow: hidden;
-  width: 805px;
+  width: 815px;
+  padding: 8px;
 }
 
 .project-container {
   left: 0;
   position: relative;
   width: 1500px;
+}
+
+.project-container li {
+  display: inline-block;
 }
 
 .project-container button {
@@ -184,6 +207,7 @@ nav {
 .project-container button:focus-within {
   outline: 3px solid var(--verde);
 }
+
 .project {
   border-radius: 5px;
   border: 2px solid #000;
@@ -192,6 +216,7 @@ nav {
   margin: 0 8px;
   transition: all 0.2s ease-in-out;
   width: 250px;
+  object-fit: cover;
 }
 
 .project:hover {
@@ -199,34 +224,10 @@ nav {
   transform: scale(1.1);
 }
 
-.project1 {
-  background: center / cover no-repeat url(./images/project1.png);
-}
-
-.project2 {
-  background: center / cover no-repeat url(./images/project2.png);
-}
-
-.project3 {
-  background: center / cover no-repeat url(./images/project3.png);
-}
-
-.project4 {
-  background: center / cover no-repeat url(./images/project4.png);
-}
-
-.project5 {
-  background: center / cover no-repeat url(./images/project5.png);
-}
-
 .arrow {
   height: 75px;
   transition: all 0.2s ease-in-out;
   width: 75px;
-}
-
-.arrow:focus-within {
-  outline: 3px solid var(--verde);
 }
 
 .arrow:hover {
@@ -245,6 +246,10 @@ nav {
   border-radius: 50%;
 }
 
+.arrow:focus {
+  outline: 3px solid var(--verde);
+}
+
 .contact-section {
   align-items: center;
   background-color: var(--gris-oscuro);
@@ -257,6 +262,12 @@ nav {
   display: flex;
   flex-direction: column;
   width: 30%;
+}
+
+.form-label,
+.message-input {
+  color: var(--verde);
+  font-family: var(--secondary-font);
 }
 
 .message-input input {
@@ -277,7 +288,7 @@ input:focus {
   align-items: center;
   background-color: var(--verde);
   border-radius: 5px;
-  color: white;
+  color: var(--gris-oscuro);
   font-family: var(--secondary-font);
   display: flex;
   height: 50px;
@@ -285,6 +296,7 @@ input:focus {
   margin-bottom: 48px;
   width: 150px;
   margin-left: auto;
+  font-size: 16px;
 }
 
 .notification {
