@@ -1,5 +1,6 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom'
 import './App.css'
+import { Navbar } from '../../Components/Navbar'
 import Home from '../Home'
 import MyAccount from '../MyAccount'
 import MyOrder from '../MyOrder'
@@ -21,13 +22,11 @@ function AppRoutes() {
 }
 
 function App() {
-
   return (
-    <div className='bg-green-500'>
       <BrowserRouter>
         <AppRoutes />
+        <Navbar />
       </BrowserRouter>
-    </div>
   )
 }
 
