@@ -1,9 +1,11 @@
+import { Layout } from "../../Components/Layout"
+
 function MyOrder() {
-    return (
-      <div className='bg-green-500'>
-        myorder
-      </div>
-    )
-  }
-  
-  export default MyOrder
+  return (
+    <Layout>
+      MyOrder
+    </Layout>
+  )
+}
+
+export default MyOrder
