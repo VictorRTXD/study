@@ -7,6 +7,7 @@ import MyOrder from '../MyOrder'
 import MyOrders from '../MyOrders'
 import NotFound from '../NotFound'
 import SignIn from '../SignIn'
+import { ShoppingCarProvider } from '../../Context'
 
 function AppRoutes() {
   let routes = useRoutes([
@@ -23,10 +24,12 @@ function AppRoutes() {
 
 function App() {
   return (
+    <ShoppingCarProvider>
       <BrowserRouter>
         <AppRoutes />
         <Navbar />
       </BrowserRouter>
+    </ShoppingCarProvider>
   )
 }
 
