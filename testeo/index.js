@@ -1,11 +1,11 @@
 const PostUrl = "https://api.escuelajs.co/api/v1/products/"
 
 const datos = {
-    "title": "no me carga la imagen :(",
+    "title": "este es freddy chiquito, nunca pares de aprender",
     "price": 100,
     "description": "this is a cool description",
     "categoryId": 2,
-    "images": ["https://th.bing.com/th/id/OIP.69c52oYo8gvV47mmcJNdFwDfEX?w=166&h=209&c=7&r=0&o=5&pid=1.7", "https://th.bing.com/th/id/OIP.69c52oYo8gvV47mmcJNdFwDfEX?w=166&h=209&c=7&r=0&o=5&pid=1.7"]
+    "images": ["https://images.pexels.com/photos/19101653/pexels-photo-19101653/free-photo-of-ciudad-arte-francia-punto-de-referencia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"]
 }
     fetch(PostUrl, {
         method: "POST",
