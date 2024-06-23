@@ -6,6 +6,9 @@ function ShoppingCarProvider({children}) {
     // shopping cart increment quantity
     const [count, setCount] = useState(0);
 
+    // shopping cart add products
+    const [cartProducts, setCartProducts] = useState([]);
+
     // ProductDetail open/close product
     const [isOpenProductDetail, setIsOpenProductDetail] = useState(false);
     const openProductDetail = () => setIsOpenProductDetail(true)
@@ -22,7 +25,9 @@ function ShoppingCarProvider({children}) {
             closeProductDetail,
             isOpenProductDetail,
             productToShow,
-            setProductToShow
+            setProductToShow,
+            cartProducts,
+            setCartProducts,
         }}>
             {children}
         </ShoppingCartContext.Provider>
