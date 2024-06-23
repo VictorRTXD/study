@@ -3,7 +3,7 @@ import {ShoppingCartContext} from "../../Context"
 import { PlusIcon } from "@heroicons/react/24/solid";
 
 function Cards({ product }) {
-    const {count, setCount, openProductDetail, setProductToShow, cartProducts, setCartProducts} = useContext(ShoppingCartContext);
+    const {count, setCount, openProductDetail, setProductToShow, cartProducts, setCartProducts, openCheckoutSideMenu} = useContext(ShoppingCartContext);
     const {category, images, title, price } = product
     
     function showProduct(productDetail) {
@@ -11,8 +11,11 @@ function Cards({ product }) {
         setProductToShow(productDetail)
     }
 
-    function addProductsToCart(productCart) {
-        setCartProducts([...cartProducts, productCart])
+    function addProductsToCart(event, productCart) {
+        event.stopPropagation();
+        setCount(count + 1)
+        setCartProducts([...cartProducts, productCart]);
+        openCheckoutSideMenu()
         console.log(cartProducts);
     }
 
@@ -24,12 +27,8 @@ function Cards({ product }) {
                 </span>
                 <img className="w-full h-full object-cover rounded-lg" src={images[0]} alt={`imagen de ${title}`} />
                 <div 
-                className=" absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1" 
-                onClick={(event) => {
-                    setCount(count + 1)
-                    event.stopPropagation()
-                }}>
-                    <PlusIcon onClick={() => addProductsToCart(product)} />
+                className=" absolute top-0 right-0 flex justify-center items-center bg-white w-6 h-6 rounded-full m-2 p-1" >
+                    <PlusIcon onClick={(event) => addProductsToCart(event, product)} />
                 </div>
             </figure>
             <p className="flex justify-between bottom-0">
