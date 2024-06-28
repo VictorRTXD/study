@@ -1,4 +1,5 @@
 import "./styles.css"
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { XMarkIcon } from '@heroicons/react/24/solid'
 import { ShoppingCartContext } from "../../Context";
@@ -23,19 +24,17 @@ function CheckoutSideMenu() {
         }
 
         setOrder([...order, orderToAdd])
-        console.log("asdffffsafd");
-        console.log([...order]);
         setCartProducts([])
         setCount(0)
     }
     
     return (
-        <aside className={`${isOpenCheckoutSideMenu ? "flex" : "hidden"} checkout-side-menu  scrollable-cards  flex-col fixed right-0 border border-black rounded-lg bg-white`}>
+        <aside className={`${isOpenCheckoutSideMenu ? "flex" : "hidden"} checkout-side-menu  flex-col fixed right-0 border border-black rounded-lg bg-white`}>
             <div className="flex justify-between items-center p-6">
                 <h2 className=" font-medium text-xl">My order</h2>
                 <XMarkIcon onClick={() => closeCheckoutSideMenu()} className="size-6 text-black-500 cursor-pointer" />
             </div >
-            <div className="px-6 flex-1">
+            <div className="px-6 flex-1 overflow-y-scroll">
                 {cartProducts.map(product => (
                     <OrderCard id={product.id} title={product.title} imageUrl={product.images} price={product.price} key={product.id} deleteProduct={deleteProduct} />
                 ))}
@@ -45,7 +44,9 @@ function CheckoutSideMenu() {
                     <span className="font-light">Total: </span>
                     <span className="font-medium text-2xl">${`${totalPrice(cartProducts)}`}</span>
                 </p>
-                <button className="w-full bg-black py-3 text-white rounded-lg" onClick={() => handleCheckout()}>Checkout</button>
+                <Link to={"/my-orders-last"}>
+                    <button className="w-full bg-black py-3 text-white rounded-lg" onClick={() => handleCheckout()}>Checkout</button>
+                </Link>
             </div>
         </aside>
     );
