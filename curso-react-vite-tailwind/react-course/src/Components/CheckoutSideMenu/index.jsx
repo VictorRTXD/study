@@ -8,7 +8,6 @@ import { totalPrice } from "../../utils";
 
 function CheckoutSideMenu() {
     const {isOpenCheckoutSideMenu, closeCheckoutSideMenu, cartProducts, setCartProducts, order, setOrder, setCount} = useContext(ShoppingCartContext);
-    console.log(cartProducts);
 
     function deleteProduct(id) {
         const filteredProducts = cartProducts.filter(product => product.id != id);
@@ -44,7 +43,7 @@ function CheckoutSideMenu() {
                     <span className="font-light">Total: </span>
                     <span className="font-medium text-2xl">${`${totalPrice(cartProducts)}`}</span>
                 </p>
-                <Link to={"/my-orders-last"}>
+                <Link to={"/my-orders/last"}>
                     <button className="w-full bg-black py-3 text-white rounded-lg" onClick={() => handleCheckout()}>Checkout</button>
                 </Link>
             </div>
