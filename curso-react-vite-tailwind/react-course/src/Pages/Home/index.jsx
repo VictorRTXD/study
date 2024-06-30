@@ -6,20 +6,42 @@ import { Cards } from "../../Components/Cards"
 import { ProductDetail } from "../../Components/ProductDetail";
 
 function Home() {
-  const {item, setSearchByTitle} = useContext(ShoppingCartContext);
+  const {item, filteredItems, searchByTitle, setSearchByTitle} = useContext(ShoppingCartContext)
+
+  const renderView = () => {
+    if (searchByTitle?.length > 0) {
+      if (filteredItems?.length > 0) {
+        return (
+          filteredItems?.map(item => (
+            <Cards key={item.id} product={item} />
+          ))
+        )
+      } else {
+        return (
+          <div>We don't have anything :(</div>
+        )
+      }
+    } else {
+       return (
+          item?.map((item) => { 
+          return <Cards product={item} key={item.id}  /> 
+        }) 
+      ) 
+    }
+  }
 
   return (
     <Layout>
-      <div className="flex items-center justify-center relative w-80 mb-4">
-        <h1 className="font-medium text-xl">Exclusive Products</h1>
+      <div className='flex items-center justify-center relative w-80 mb-4'>
+        <h1 className='font-medium text-xl'>Exclusive Products</h1>
       </div>
-      <input type="text" placeholder="Search a product" className="rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none" onChange={(event) => setSearchByTitle(event.target.value)} />
-      <div className="grid w-full grid-cols-4 gap-4 max-w-screen-lg ">
-      {
-        item?.map((item) => {
-          return <Cards product={item} key={item.id}  />
-        })
-      }
+      <input
+        type="text"
+        placeholder='Search a product'
+        className='rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none'
+        onChange={(event) => setSearchByTitle(event.target.value)} />
+      <div className='grid gap-4 grid-cols-4 w-full max-w-screen-lg'>
+        {renderView()}
       </div>
       <ProductDetail />
     </Layout>

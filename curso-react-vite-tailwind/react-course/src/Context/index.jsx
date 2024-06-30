@@ -30,13 +30,22 @@ function ShoppingCarProvider({children}) {
 
     // get products by title
     const [searchByTitle, setSearchByTitle] = useState(null);
-    console.log(`resultado: ${searchByTitle}`);
+    const [filteredItems, setFilteredItems] = useState(null);
 
     useEffect(() => {
-      fetch('https://api.escuelajs.co/api/v1/products')
-      .then(response => response.json())
-      .then(data => setItem(data))
-    }, [])
+        fetch('https://api.escuelajs.co/api/v1/products')
+          .then(response => response.json())
+          .then(data => setItem(data))
+      }, [])
+    
+      const filteredItemsByTitle = (item, searchByTitle) => {
+        return item?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+      }
+    
+      useEffect(() => {
+        if (searchByTitle) 
+          setFilteredItems(filteredItemsByTitle(item, searchByTitle))
+      }, [item, searchByTitle])
 
     return(
         <ShoppingCartContext.Provider value={{
@@ -58,6 +67,7 @@ function ShoppingCarProvider({children}) {
             setItem,
             searchByTitle,
             setSearchByTitle,
+            filteredItems,
         }}>
             {children}
         </ShoppingCartContext.Provider>
