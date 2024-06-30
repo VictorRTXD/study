@@ -4,7 +4,7 @@ const datos = {
     "title": "este es freddy chiquito, nunca pares de aprender",
     "price": 100,
     "description": "this is a cool description",
-    "categoryId": 2,
+    "categoryId": 1,
     "images": ["https://images.pexels.com/photos/19101653/pexels-photo-19101653/free-photo-of-ciudad-arte-francia-punto-de-referencia.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"]
 }
     fetch(PostUrl, {

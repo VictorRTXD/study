@@ -28,9 +28,10 @@ function ShoppingCarProvider({children}) {
     // get products
     const [item, setItem] = useState(null);
 
-    // get products by title
+    // get products by title and category
     const [searchByTitle, setSearchByTitle] = useState(null);
     const [filteredItems, setFilteredItems] = useState(null);
+    const [searchByCategory, setSearchByCategory] = useState(null);
 
     useEffect(() => {
         fetch('https://api.escuelajs.co/api/v1/products')
@@ -41,11 +42,35 @@ function ShoppingCarProvider({children}) {
       const filteredItemsByTitle = (item, searchByTitle) => {
         return item?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
       }
+
+      const filteredItemsByCategory = (item, searchByCategory) => {
+        return item?.filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()))
+      }
+
+      const filterBy = (searchType, item, searchByTitle, searchByCategory) => {
+        if (searchType === 'BY_TITLE') {
+          return filteredItemsByTitle(item, searchByTitle)
+        }
+    
+        if (searchType === 'BY_CATEGORY') {
+          return filteredItemsByCategory(item, searchByCategory)
+        }
+    
+        if (searchType === 'BY_TITLE_AND_CATEGORY') {
+          return filteredItemsByCategory(item, searchByCategory).filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
+        }
+    
+        if (!searchType) {
+          return item
+        }
+      }
     
       useEffect(() => {
-        if (searchByTitle) 
-          setFilteredItems(filteredItemsByTitle(item, searchByTitle))
-      }, [item, searchByTitle])
+        if (searchByTitle && searchByCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', item, searchByTitle, searchByCategory))
+        if (searchByTitle && !searchByCategory) setFilteredItems(filterBy('BY_TITLE', item, searchByTitle, searchByCategory))
+        if (!searchByTitle && searchByCategory) setFilteredItems(filterBy('BY_CATEGORY', item, searchByTitle, searchByCategory))
+        if (!searchByTitle && !searchByCategory) setFilteredItems(filterBy(null, item, searchByTitle, searchByCategory))
+      }, [item, searchByTitle, searchByCategory])
 
     return(
         <ShoppingCartContext.Provider value={{
@@ -68,6 +93,8 @@ function ShoppingCarProvider({children}) {
             searchByTitle,
             setSearchByTitle,
             filteredItems,
+            setSearchByCategory,
+            searchByCategory,
         }}>
             {children}
         </ShoppingCartContext.Provider>
