@@ -6,10 +6,9 @@ import { Cards } from "../../Components/Cards"
 import { ProductDetail } from "../../Components/ProductDetail";
 
 function Home() {
-  const {item, filteredItems, searchByTitle, setSearchByTitle} = useContext(ShoppingCartContext)
+  const {filteredItems, setSearchByTitle} = useContext(ShoppingCartContext)
 
   const renderView = () => {
-    if (searchByTitle?.length > 0) {
       if (filteredItems?.length > 0) {
         return (
           filteredItems?.map(item => (
@@ -21,13 +20,6 @@ function Home() {
           <div>We don't have anything :(</div>
         )
       }
-    } else {
-       return (
-          item?.map((item) => { 
-          return <Cards product={item} key={item.id}  /> 
-        }) 
-      ) 
-    }
   }
 
   return (
