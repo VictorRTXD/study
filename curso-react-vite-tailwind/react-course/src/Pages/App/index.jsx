@@ -5,10 +5,12 @@ import Home from '../Home'
 import MyAccount from '../MyAccount'
 import MyOrder from '../MyOrder'
 import MyOrders from '../MyOrders'
-import NotFound from '../NotFound'
+import { NotFound } from '../NotFound'
 import SignIn from '../SignIn'
 import { ShoppingCarProvider } from '../../Context'
 import { CheckoutSideMenu } from '../../Components/CheckoutSideMenu'
+import { WithoutAccount } from '../WithoutAccount'
+import { SignUp } from '../SignUp'
 
 function AppRoutes() {
   let routes = useRoutes([
@@ -24,6 +26,8 @@ function AppRoutes() {
     { path: '/my-orders/last', element: <MyOrder />},
     { path: '/my-orders/:id', element: <MyOrder />},
     { path: '/sign-in', element: <SignIn /> },
+    { path: '/welcome', element: <WithoutAccount /> },
+    { path: '/sign-up', element: <SignUp /> },
     { path: '/*', element: <NotFound /> },
   ])
 

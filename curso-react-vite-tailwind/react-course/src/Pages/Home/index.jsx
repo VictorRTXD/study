@@ -4,6 +4,7 @@ import { ShoppingCartContext } from "../../Context";
 import { Layout } from "../../Components/Layout"
 import { Cards } from "../../Components/Cards"
 import { ProductDetail } from "../../Components/ProductDetail";
+import { WithoutAccount } from "../WithoutAccount";
 
 function Home() {
   const {filteredItems, setSearchByTitle} = useContext(ShoppingCartContext)

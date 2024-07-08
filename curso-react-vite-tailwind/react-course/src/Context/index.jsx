@@ -70,8 +70,11 @@ function ShoppingCarProvider({children}) {
         if (searchByTitle && !searchByCategory) setFilteredItems(filterBy('BY_TITLE', item, searchByTitle, searchByCategory))
         if (!searchByTitle && searchByCategory) setFilteredItems(filterBy('BY_CATEGORY', item, searchByTitle, searchByCategory))
         if (!searchByTitle && !searchByCategory) setFilteredItems(filterBy(null, item, searchByTitle, searchByCategory))
-      }, [item, searchByTitle, searchByCategory])
+      }, [item, searchByTitle, searchByCategory]
+    )
 
+    // para without account y signup
+    const [account, setAccount] = useState(new Map());
     return(
         <ShoppingCartContext.Provider value={{
             count,
@@ -95,6 +98,8 @@ function ShoppingCarProvider({children}) {
             filteredItems,
             setSearchByCategory,
             searchByCategory,
+            account,
+            setAccount,
         }}>
             {children}
         </ShoppingCartContext.Provider>
