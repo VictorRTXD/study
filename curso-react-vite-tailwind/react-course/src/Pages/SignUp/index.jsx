@@ -1,23 +1,29 @@
 import { Layout } from "../../Components/Layout"
 import { ShoppingCartContext } from "../../Context"
-import { useContext } from "react"
+import { useContext, useState, useEffect } from "react"
+import { Link } from "react-router-dom";
 
 function SignUp() {
   let email = ""
   let password1 = ""
   let password2 = ""
+  const [route, setRoute] = useState("/sign-up"); // Estado inicial: redirecciona a /sign-in
   const {account, setAccount} = useContext(ShoppingCartContext)
 
-  function onSubmit(event) {
-    event.preventDefault();
-    if (password1 === password2) {
+  function onSubmit() {
+    if (password1 === password2 && password1 != "" && email != "") {
       const addAccountToContext = new Map(account); // Haces una copia del Map actual
       addAccountToContext.set(email, password1); // Agregas un nuevo elemento al Map
       setAccount(addAccountToContext); // Actualizas el estado con el nuevo Map
+      setRoute("/welcome"); // Cambia la ruta a /welcome si las contraseñas coinciden
     } else {
       alert("las contrasenas no coinsiden, intenta nuevamente")
     }
   }
+
+  useEffect(() => {
+    localStorage.setItem("accounts", JSON.stringify(account))
+  }, [account])
 
   return (
     <>
@@ -30,7 +36,10 @@ function SignUp() {
           onChange={(event) => password1 = event.target.value} />
           <input type="password" placeholder="Confirm password" className="rounded-lg border border-black w-80 p-4 mb-4 focus:outline-none"
           onChange={(event) => password2 = event.target.value} />
-          <input type="submit" className="rounded-lg border border-teal-500 w-80 p-4 mb-4 focus:outline-none cursor-pointer" />
+          <Link to={route}>
+            {/* <button className="w-full bg-black py-3 text-white rounded-lg" onClick={() => handleCheckout()}>Checkout</button> */}
+            <button onClick={() => onSubmit()} className="rounded-lg border border-teal-500 w-80 p-4 mb-4 focus:outline-none cursor-pointer">Registrar usuario</button>
+          </Link>
         </form>
       </Layout>
     </>

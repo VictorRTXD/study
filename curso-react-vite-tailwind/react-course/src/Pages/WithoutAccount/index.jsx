@@ -1,6 +1,7 @@
 import { Layout } from "../../Components/Layout"
 import { ShoppingCartContext } from "../../Context";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import React from "react";
 
 function WithoutAccount() {
@@ -26,7 +27,9 @@ function WithoutAccount() {
         <input type="submit" className="rounded-lg border border-teal-500 w-80 p-4 mb-4 focus:outline-none cursor-pointer"/>
       </form>
 
-      <a href="/sign-up">Don't have account?</a>
+      <Link to={"/sign-up"}>
+      <p>Don't have account?</p>
+      </Link>
     </Layout>
   )
 }
