@@ -16,6 +16,7 @@ function Cards({ product }) {
         setCount(count + 1)
         setCartProducts([...cartProducts, productCart]);
         openCheckoutSideMenu()
+        console.log(cartProducts);
     }
 
     function renderIcon(id) {
