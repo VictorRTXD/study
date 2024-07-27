@@ -48,7 +48,7 @@ function Cards({ product }) {
                 <img className="w-full h-full object-cover rounded-lg" src={images[0]} alt={`imagen de ${title}`} />
                 {renderIcon(id)}
             </figure>
-            <p className="flex justify-between bottom-0">
+            <p className="flex justify-between items-center">
                 <span className="text-sm font-light">{title}</span>
                 <span className="text-lg font-medium">{`$${price}`}</span>
             </p>

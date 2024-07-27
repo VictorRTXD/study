@@ -30,20 +30,9 @@ const Navbar = () => {
     const renderView = () => {
       if (hasUserAnAccount && !isUserSignOut) {
         return (
-          <li>
-            <NavLink
-              to="/sign-in"
-              className={({ isActive }) => isActive ? activeStyle : undefined }
-              onClick={() => handleSignOut()}>
-              Sign out
-            </NavLink>
-          </li>
-        )
-      } else {
-        return (
           <>
-            <li className='text-black/60'>
-              victor@memes.com
+            <li className="text-black/50">
+              {parsedAccount?.email}
             </li>
             <li>
               <NavLink
@@ -69,11 +58,22 @@ const Navbar = () => {
             </li>
           </>
         )
+      } else {
+        return (
+          <li>
+            <NavLink
+              to="/sign-in"
+              className={({ isActive }) => isActive ? activeStyle : undefined }
+              onClick={() => handleSignOut()}>
+              Sign out
+            </NavLink>
+          </li>
+        )
       }
     }
   
     return (
-      <nav className='flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light'>
+      <nav className='flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light bg-white'>
         <ul className='flex items-center gap-3'>
           <li className='font-semibold text-lg'>
             <NavLink to={`${isUserSignOut ? "/sign-in" : "/"}`}>
