@@ -1,1 +1,1 @@
-nombre
+console.log(__dirname);
