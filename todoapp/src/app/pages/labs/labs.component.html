@@ -6,11 +6,13 @@
   </ul>
 
   <hr>
+  <h1>se permite combinar texto duro con datos dinamicos</h1>
   <h2>{{ "hola".repeat(4) }}</h2>
   <p> la suma de 3 + 3 es {{3+3}}</p>
   <p>hola soy {{name}} y tengo {{age}}</p>
 
   <hr>
+  <h1>se puede completar propiedades con variables o la logica de la app (property binding)</h1>
   <img [src]="img" alt="imagen firefox">
   <input type="text" [value]="name">
   <input type="number" [value]="person.age">
@@ -18,7 +20,19 @@
   <p>{{person.name}}</p>
 
   <hr>
+  <h1>manejo de eventos con parentesis (click y doble click) (event binding)</h1>
   <button (click)="clickHandler()">click me</button>  <button (dblclick)="clickHandler()">double me</button>
   <p>(change)</p>
   <input type="number" [value]="person.age" (change)="changeHandler($event)">
+
+  <hr>
+  <h1>manejo de eventos con parentesis (key down) (event binding)</h1>
+
+  <input type="text" value="keydown" (keydown)="keyDownHandler($event)">
+  <input type="text" value="con enter pasa algo" (keydown.enter)="clickHandler()">
+
+  <hr>
+  <h1>Signals</h1>
+  <p>este nombre cambiara de forma reactiva y dinamica ->{{secondName()}}</p>
+    <input type="text" [value]="secondName()" (keydown)="signalHandler($event)">
 </div>
