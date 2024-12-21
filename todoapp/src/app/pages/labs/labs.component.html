@@ -1,7 +1,8 @@
 <div class="container">
   <h1>Primer proyecto</h1>
   <h2>{{ welcome }}</h2>
-  <ul>
+  <ul> 
+    <!-- renderizar una array y cada elemento de el -->
     <li *ngFor="let task of tasks">{{task}}</li>
   </ul>
 
@@ -35,4 +36,15 @@
   <h1>Signals</h1>
   <p>este nombre cambiara de forma reactiva y dinamica ->{{secondName()}}</p>
     <input type="text" [value]="secondName()" (keydown)="signalHandler($event)">
+
+  <hr>
+  <h1>directivas de control</h1>
+  <ul> 
+    <!-- renderizar una array y cada elemento de el -->
+    <li *ngFor="let task of tasks2(); index as i">
+      {{i}}
+      {{task}}
+    </li>
+    <p>total: {{tasks2().length}}</p>
+  </ul>
 </div>
