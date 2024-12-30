@@ -15,10 +15,10 @@ export class LabsComponent {
   age = 21;
   bStatus = true;
   img = "chrome://branding/content/about-logo@2x.png";
-  person = {
+  person = signal({
     name: "victor",
     age: 21,
-  }
+  });
   secondName = signal("eduardo");
 
   clickHandler = () => alert("hola putos");
@@ -31,5 +31,22 @@ export class LabsComponent {
     const input = event.target as HTMLInputElement;
     const newValue = input.value;
     this.secondName.set(newValue); //forma para cambiar los valores signal
+  }
+  changeAge(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person.update(prevState => {
+      return {...prevState, age: parseInt(newValue, 10)}
+    })
+  }
+  changeName(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person.update(prevState => {
+      return {
+        ...prevState, 
+        name: newValue 
+      }
+    });
   }
 }

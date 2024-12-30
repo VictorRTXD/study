@@ -16,15 +16,15 @@
   <h1>se puede completar propiedades con variables o la logica de la app (property binding)</h1>
   <img [src]="img" alt="imagen firefox">
   <input type="text" [value]="name">
-  <input type="number" [value]="person.age">
+  <input type="number" [value]="person().age">
   <button [disabled]="bStatus">click me</button>
-  <p>{{person.name}}</p>
+  <p>{{person().name}}</p>
 
   <hr>
   <h1>manejo de eventos con parentesis (click y doble click) (event binding)</h1>
   <button (click)="clickHandler()">click me</button>  <button (dblclick)="clickHandler()">double me</button>
   <p>(change)</p>
-  <input type="number" [value]="person.age" (change)="changeHandler($event)">
+  <input type="number" [value]="person().age" (change)="changeHandler($event)">
 
   <hr>
   <h1>manejo de eventos con parentesis (key down) (event binding)</h1>
@@ -35,7 +35,7 @@
   <hr>
   <h1>Signals</h1>
   <p>este nombre cambiara de forma reactiva y dinamica ->{{secondName()}}</p>
-    <input type="text" [value]="secondName()" (keydown)="signalHandler($event)">
+  <input type="text" [value]="secondName()" (keydown)="signalHandler($event)">
 
   <hr>
   <h1>directivas de control</h1>
@@ -47,4 +47,30 @@
     </li>
     <p>total: {{tasks2().length}}</p>
   </ul>
+
+  <hr>
+  <h1>uso de ngif</h1>
+  <p *ngIf="1 === 1">esto se vera</p>
+  <p *ngIf="1 !== 1">esto NO se renderizara</p>
+  <div *ngIf="secondName() === 'eduardo' ">Soy eduardo</div>
+
+  <input type="number" [value]="person().age" (change)="changeAge($event)">
+
+  <p *ngIf="person().name === 'victor' && person().age > 20; else elseBLock">
+    victor mayor de 20
+  </p>
+  <ng-template #elseBLock>
+    <p>ha entrado en el bloque else por datos erroneos
+    </p>
+  </ng-template>
+
+  <hr>
+  <h1>Uso de ngSwitch y ngSwitchDefault</h1>
+  <input type="text" [value]="person().name" (change)="changeName($event)" placeholder="Recuerda el enter">
+  <div [ngSwitch]="person().name">
+    <p *ngSwitchCase="'victor'">yo soy victor en el primer caso</p>
+    <p *ngSwitchCase="'eduardo'">yo soy eduardo la opcion 2 </p>
+    <p *ngSwitchCase="'vicente'">soy chente 3 </p>
+    <p *ngSwitchDefault>yo no soy nadie</p>
+  </div>
 </div>
