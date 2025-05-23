@@ -1,0 +1,12 @@
+docker images # ver mis imagenes
+docker info # ver mi hardware
+docker ps # para ver contenedores
+docker --help
+docker run -it --rm -d -p 8080:80 --name web sitioweb
+docker stop imageid
+docker build . -t sitioweb:latest
+docker images --no-trunc
+docker images --filter=reference='*:latest'
+docker image tag sitioweb:latest platzi:demo1
+docker rmi 
+docker stats
