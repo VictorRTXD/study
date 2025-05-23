@@ -9,10 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  saludo = 'hola';
-  tasks = [
-    'tarea1',
-    'tarea2',
-    'tarea3',
-  ]
+
 }
