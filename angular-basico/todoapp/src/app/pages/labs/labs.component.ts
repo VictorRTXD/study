@@ -14,5 +14,13 @@ export class LabsComponent {
     'tarea2',
     'tarea3',
   ]
-  private privado = "esto no lo vera el html"
+  private privado = "esto no lo vera el html";
+  variableInput = "este es mi valor";
+  disabled = false;
+  img = "https://th.bing.com/th/id/OIP.7wm4zT59Oep7kXxMC_HgLgHaE8?rs=1&pid=ImgDetMain";
+
+  person = {
+    name : 'victor',
+    
+  }
 }
