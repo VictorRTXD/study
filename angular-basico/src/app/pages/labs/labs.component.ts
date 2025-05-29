@@ -23,4 +23,12 @@ export class LabsComponent {
     name : 'victor',
     
   }
+
+  clickHandler() {
+    alert('hola mundo');
+  }
+
+  changeHandler(event: Event) {
+    console.log(event);
+  }
 }

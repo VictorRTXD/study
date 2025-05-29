@@ -1,0 +1,19 @@
+<p>{{saludo}}</p>
+<ul>
+    <li *ngFor="let task of tasks"> {{task}} </li>
+</ul>
+
+<hr>
+<h2>{{"hola".repeat(2)}}</h2>
+<p>la suma de 3 mas 3 es {{3 + 3}}</p>
+
+<hr>
+<img [src]="img" alt="">
+<input type="text" [value]="variableInput">
+<button [disabled]="disabled">click me</button>
+
+<hr>
+<!-- {{propiedad}} [atributos] (eventos)-->
+<button (dblclick)="clickHandler()">click me event</button>
+<button (click)="clickHandler()" (dblclick)="clickHandler()">click me event 2 times</button>
+<input (change)="changeHandler($event)" type="number"/>
