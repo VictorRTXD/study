@@ -17,3 +17,9 @@
 <button (dblclick)="clickHandler()">click me event</button>
 <button (click)="clickHandler()" (dblclick)="clickHandler()">click me event 2 times</button>
 <input (change)="changeHandler($event)" type="number"/>
+
+<hr>
+<!-- change y keydown tienen sus diferencias -->
+<input (keydown)="keydonwnHandler($event)"  [value]="person.name"/>
+<input (change)="changeHandler($event)"  [value]="person.name"/>
+<input (keydown.shift.t)="clickHandler()" [value]="person.name"/>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-labs',
@@ -30,5 +30,10 @@ export class LabsComponent {
 
   changeHandler(event: Event) {
     console.log(event);
+  }
+
+  keydonwnHandler(event: KeyboardEvent) {
+    const input = event.target as HTMLInputElement;
+    console.log(input.value);
   }
 }
