@@ -9,11 +9,11 @@ import { Component, input, signal } from '@angular/core';
 })
 export class LabsComponent {
   saludo = 'hola';
-  tasks = [
+  tasks = signal([
     'tarea1',
     'tarea2',
     'tarea3',
-  ]
+  ])
   private privado = "esto no lo vera el html";
   variableInput = "este es mi valor";
   disabled = false;
