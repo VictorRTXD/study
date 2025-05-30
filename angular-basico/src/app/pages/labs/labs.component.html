@@ -1,4 +1,4 @@
-<p>{{saludo}}</p>
+<p>{{saludo}} soy {{person.name()}}</p>
 <ul>
     <li *ngFor="let task of tasks"> {{task}} </li>
 </ul>
@@ -20,6 +20,11 @@
 
 <hr>
 <!-- change y keydown tienen sus diferencias -->
-<input (keydown)="keydonwnHandler($event)"  [value]="person.name"/>
-<input (change)="changeHandler($event)"  [value]="person.name"/>
-<input (keydown.shift.t)="clickHandler()" [value]="person.name"/>
+<input (keydown)="keydonwnHandler($event)"  [value]="person.name()"/>
+<input (change)="changeHandler($event)"  [value]="person.name()"/>
+<input (keydown.shift.t)="clickHandler()" [value]="person.name()"/>
+
+<hr>
+<h1>signals</h1>
+<input (keyup)="changeHandler($event)"  [value]="person.name()"/>
+<p>texto afectado por signals: {{person.name()}}</p>

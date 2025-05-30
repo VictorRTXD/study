@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-labs',
@@ -20,8 +20,8 @@ export class LabsComponent {
   img = "https://th.bing.com/th/id/OIP.7wm4zT59Oep7kXxMC_HgLgHaE8?rs=1&pid=ImgDetMain";
 
   person = {
-    name : 'victor',
-    
+    name : signal('victor'),
+    age: 18
   }
 
   clickHandler() {
@@ -29,7 +29,10 @@ export class LabsComponent {
   }
 
   changeHandler(event: Event) {
-    console.log(event);
+    const input = event.target as HTMLInputElement;
+    const newvalue = input.value;
+    this.person.name.set(newvalue); // Actualiza la señal con el nuevo valor
+    console.log(newvalue);
   }
 
   keydonwnHandler(event: KeyboardEvent) {
