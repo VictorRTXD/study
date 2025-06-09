@@ -14,4 +14,16 @@ export class HomeComponent {
     'tarea2',
     'tarea3',
   ])
+
+  addTask(event: Event) {
+    // como lo hice yo
+    // const input = event.target as HTMLInputElement
+    // this.tasks.set([...this.tasks(), input.value])
+    const input = event.target as HTMLInputElement
+    this.tasks.update((tasks) => [...tasks, input.value]);
+  }
+  
+  deleteTask(index: number) {
+    this.tasks.update((tasks) => tasks.filter((task, position) => position !== index));
+  }
 }
