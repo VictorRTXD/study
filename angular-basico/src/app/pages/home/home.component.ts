@@ -67,4 +67,8 @@ export class HomeComponent {
       });
     });
   }
+
+  labelItem() {
+    return (this.tasks().length + this.completedTasks) === 1 ? "item" : "items";
+  }
 }
