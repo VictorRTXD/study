@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Task } from '../../models/task.model';
 
 @Component({
   selector: 'app-home',
@@ -9,21 +10,61 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  tasks = signal([
-    'tarea1',
-    'tarea2',
-    'tarea3',
+  completedTasks = 0;
+
+  tasks = signal<Task[]>([
+    {
+      id: Date.now(), 
+      name: 'tarea1', 
+      completed: false
+    },
+    {
+      id: Date.now(), 
+      name: 'tarea2', 
+      completed: false
+    },
+    {
+      id: Date.now(), 
+      name: 'tarea3', 
+      completed: false
+    },
   ])
 
   addTask(event: Event) {
-    // como lo hice yo
-    // const input = event.target as HTMLInputElement
-    // this.tasks.set([...this.tasks(), input.value])
     const input = event.target as HTMLInputElement
-    this.tasks.update((tasks) => [...tasks, input.value]);
+    this.addTaskHandler(input.value)
+  }
+
+  addTaskHandler(title: string) {
+    const newTask = {
+      id: Date.now(),
+      name: title,
+      completed: false
+    }
+
+    this.tasks.update((tasks) => [...tasks, newTask]);
   }
   
   deleteTask(index: number) {
     this.tasks.update((tasks) => tasks.filter((task, position) => position !== index));
+  }
+
+  updateTask(index: number) {
+    this.tasks.update((tasks) => {
+      return tasks.map((task, position) => {
+        if (position === index) {
+          if (task.completed == true)
+            this.completedTasks++;
+          else
+            this.completedTasks--;
+
+          return {
+            ...task,
+            completed: !task.completed
+          };
+        }
+        return task;
+      });
+    });
   }
 }
