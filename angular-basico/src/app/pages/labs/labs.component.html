@@ -47,3 +47,8 @@
     <span *ngSwitchCase="'Pedro'">Hola Pedro</span>
     <span *ngSwitchDefault>Hola desconocido</span>
 </div>
+
+<hr>
+<h2>formularios reactivos</h2>
+<input type="color" [formControl]="colorCtrl">
+<p>color {{ colorCtrl.value }} </p>

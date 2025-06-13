@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, signal } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-labs',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './labs.component.html',
   styleUrl: './labs.component.css'
 })
@@ -21,7 +22,15 @@ export class LabsComponent {
 
   person = {
     name : signal('victor'),
-    age: 18
+    age: 18,
+  }
+
+  colorCtrl = new FormControl()
+
+  constructor() {
+    this.colorCtrl.valueChanges.subscribe(value => {
+      console.log(value);
+    })
   }
 
   clickHandler() {
