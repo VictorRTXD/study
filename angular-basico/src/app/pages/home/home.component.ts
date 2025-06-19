@@ -1,14 +1,16 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Task } from '../../models/task.model';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent {
   completedTasks = 0;
 
@@ -30,9 +32,20 @@ export class HomeComponent {
     },
   ])
 
-  addTask(event: Event) {
-    const input = event.target as HTMLInputElement
-    this.addTaskHandler(input.value)
+  newTaskContron = new FormControl('', {
+    nonNullable: true,
+    validators: [
+      Validators.required
+    ]
+  });
+  
+
+  addTask() {
+    if (this.newTaskContron.valid) {
+      const value = this.newTaskContron.value;
+      this.addTaskHandler(value);
+      this.newTaskContron.setValue('');
+    }
   }
 
   addTaskHandler(title: string) {
@@ -42,7 +55,10 @@ export class HomeComponent {
       completed: false
     }
 
-    this.tasks.update((tasks) => [...tasks, newTask]);
+    if (newTask.name && newTask.name.trim() !== '') 
+      this.tasks.update((tasks) => [...tasks, newTask]);
+    else 
+      alert('El nombre de la tarea no puede estar vacío o repetido');
   }
   
   deleteTask(index: number) {
