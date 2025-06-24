@@ -52,3 +52,7 @@
 <h2>formularios reactivos</h2>
 <input type="color" [formControl]="colorCtrl">
 <p>color {{ colorCtrl.value }} </p>
+
+<hr>
+<input type="number" [formControl]="widthCtrl">
+<span class="box" [style.width.px]="widthCtrl.value"></span>
