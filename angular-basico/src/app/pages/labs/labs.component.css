@@ -3,3 +3,16 @@
     display: block;
     background-color: red;
 }
+
+.message-error {
+    background-color: red;
+    color: white;
+    opacity: 0;
+}
+
+.message-error.show {
+    background-color: green;
+    color: white;
+    opacity: 1;
+    transition: all linear 0.5s;
+}
