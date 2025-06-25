@@ -87,4 +87,38 @@ export class HomeComponent {
   labelItem() {
     return (this.tasks().length + this.completedTasks) === 1 ? "item" : "items";
   }
+
+  editTask(index: number) {
+    this.tasks.update(prevState => {
+      return prevState.map((task, position) => {
+        if (position === index) {
+          return {
+            ...task,
+            editing: true
+          }
+        }
+        return {
+          ...task,
+          editing: false
+        }
+      })
+    })
+  }
+
+  saveEditTask(index: number, event: Event) {
+    const input = event.target as HTMLInputElement;
+
+    this.tasks.update(prevState => {
+      return prevState.map((task, position) => {
+        if (position === index) {
+          return {
+            ...task,
+            name: input.value,
+            editing: false
+          }
+        }
+        return task
+      })
+    })
+  }
 }
