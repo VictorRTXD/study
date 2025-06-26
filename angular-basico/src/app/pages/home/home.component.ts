@@ -1,4 +1,4 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, effect, Injector, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Task } from '../../models/task.model';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -14,23 +14,7 @@ import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 export class HomeComponent {
   completedTasks = 0;
 
-  tasks = signal<Task[]>([
-    {
-      id: Date.now(), 
-      name: 'tarea1', 
-      completed: false
-    },
-    {
-      id: Date.now(), 
-      name: 'tarea2', 
-      completed: false
-    },
-    {
-      id: Date.now(), 
-      name: 'tarea3', 
-      completed: false
-    },
-  ])
+  tasks = signal<Task[]>([])
   filter = signal<"all" | "pending" | "completed">("all")
   tasksFiltered = computed(() => {
     const filter = this.filter();
@@ -51,7 +35,24 @@ export class HomeComponent {
       Validators.required
     ]
   });
-  
+
+  injector = inject(Injector)
+
+  ngOnInit() {
+    const storage = localStorage.getItem('tasks');
+    if (storage) {
+      const tasks = JSON.parse(storage);
+      this.tasks.set(tasks);
+    }
+    this.trackTasks();
+  }
+
+  trackTasks() {
+    effect(() => {
+          const tasks = this.tasks();
+          localStorage.setItem('tasks', JSON.stringify(tasks))
+    }, {injector: this.injector})
+  }
 
   addTask() {
     if (this.newTaskContron.valid) {
