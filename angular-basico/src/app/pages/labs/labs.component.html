@@ -62,3 +62,30 @@
     <input type="text" [formControl]="nameCtrl"> <br>
     <span class="message-error" [class.show]="nameCtrl.invalid && nameCtrl.touched">nombre invalido</span>
 </p>
+
+<hr>
+<h2>new for</h2>
+<ul>
+    <p>total: {{tasks().length}}</p>
+    @for (task of tasks(); track task; let i = $index) {
+        <li>{{i}} {{task}}</li>
+    } @empty {
+        <li><strong>la lista esta en vacio</strong></li>
+    }
+</ul>
+<hr>
+<h2>new switch</h2>
+@switch (person.name()) {
+    @case ('victor') {
+        <p>si soy</p>
+    }
+    @case ('julian') {
+        <p>si julian</p>
+    }
+    @case ('chente') {
+        <p>si vicente</p>
+    }
+    @default {
+        <p>no te conozco</p>
+    }
+}
