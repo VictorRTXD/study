@@ -15,6 +15,7 @@ export class Counter {
   constructor() {
     // no async
     // before render 
+    // corre solo una vez
     console.log('constructor');
     console.log('-'.repeat(10));
   }
@@ -24,6 +25,35 @@ export class Counter {
     console.log("ngonchanges");
     console.log("-".repeat(10));
     console.log(changes);
-    
+    const duration = changes['duration'];
+    if (duration)
+      console.log(duration.previousValue + ' ' + duration.currentValue);
+      this.doSomething();
+  }
+
+  ngOnInit() {
+    // after render
+    // una vez
+    // async, then, subs
+    console.log('ngOninit');
+    console.log('-'.repeat(10));
+    console.log('duration ' + this.duration);
+    console.log('message ' + this.message);
+  }
+
+  ngAfterViewInit() {
+    // after render
+    // hijos ya fueron pintados 
+    console.log('ngafterviewinit');
+    console.log('-'.repeat(10));
+  }
+
+  ngOnDestroy() {
+    console.log('muerto');
+    console.log('-'.repeat(10));
+  }
+
+  doSomething() {
+    console.log('change duration');
   }
 }
