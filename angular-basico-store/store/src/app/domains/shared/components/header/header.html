@@ -84,9 +84,10 @@
   </div>
   <div>
     <div *ngFor="let product of cart">
+      <img [src]="product.image" [alt]="product.title">
       <p>{{product.title}}</p>
       <p>{{product.price}}</p>
-
     </div>
+    <p>Total: {{total()}}</p>
   </div>
 </div>
