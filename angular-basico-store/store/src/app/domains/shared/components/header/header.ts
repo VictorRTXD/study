@@ -13,7 +13,7 @@ export class Header {
   hideSideMenu = signal(true);
   private cartService = inject(Cart)
   cart = this.cartService.cart;
-  total = this.cartService.to;
+  total = this.cartService.total;
 
 
   toogleSideMenu() {
