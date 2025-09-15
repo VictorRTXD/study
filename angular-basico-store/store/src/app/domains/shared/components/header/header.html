@@ -1,3 +1,5 @@
+<!-- siempre es malo ejecutar funciones en el template html, para eso esta signlas  -->
+ 
 <nav>
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4"
@@ -83,7 +85,7 @@
     </button>
   </div>
   <div>
-    <div *ngFor="let product of cart">
+    <div *ngFor="let product of cart()">
       <img [src]="product.image" [alt]="product.title">
       <p>{{product.title}}</p>
       <p>{{product.price}}</p>
