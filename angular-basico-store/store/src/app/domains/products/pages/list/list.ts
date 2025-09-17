@@ -1,10 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../components/product/product';
-import { ProductModel } from '../../../shared/componentes/counter/models/product.model';
-import { Header } from '../../../shared/components/header/header';
-import { Cart } from '../../../shared/services/cart';
-import { ProductService } from '../../../shared/services/product.service';
+import { ProductModel } from '@sharedcomponentes/counter/models/product.model';
+import { Header } from '@shared/components/header/header';
+import { Cart } from '@sharedservices/cart';
+import { ProductService } from '@sharedservices/product.service';
 
 @Component({
   selector: 'app-list',
