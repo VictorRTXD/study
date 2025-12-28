@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Counter } from "@shared/componentes/counter/counter";
 import { WaveAudio } from '../../components/wave-audio/wave-audio';
 import { HighlightDirective } from '@shared/directives/highlight';
+import { Header } from '@shared/components/header/header';
 
 @Component({
   selector: 'app-about',
-  imports: [CommonModule, Counter, WaveAudio, HighlightDirective],
+  imports: [CommonModule, Counter, WaveAudio, HighlightDirective, Header],
   standalone: true,
   templateUrl: './about.html',
   styleUrl: './about.css'
