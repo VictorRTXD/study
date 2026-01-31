@@ -11,7 +11,7 @@ import { Cart } from '@shared/services/cart';
   styleUrl: './product-detail.css',
   standalone: true,
 })
-export class ProductDetail {
+export default class ProductDetail {
   @Input() id?: string;
   product = signal<ProductModel | null>(null);
   cover = signal("")

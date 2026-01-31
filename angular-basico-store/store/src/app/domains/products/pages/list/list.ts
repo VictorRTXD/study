@@ -15,7 +15,7 @@ import { RouterLink } from "@angular/router";
   templateUrl: './list.html',
   styleUrl: './list.css'
 })
-export class List {
+export default class List {
   products = signal<ProductModel[]>([]);
   categories = signal<Category[]>([]);
   private cartService = inject(Cart)
