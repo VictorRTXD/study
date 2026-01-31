@@ -1,9 +1,9 @@
 import { Component, Input, signal, SimpleChanges } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-counter',
-  imports: [CommonModule],
+  imports: [],
   standalone: true,
   templateUrl: './counter.html',
   styleUrl: './counter.css'

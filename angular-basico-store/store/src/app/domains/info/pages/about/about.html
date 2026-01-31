@@ -1,15 +1,17 @@
 <div class="bg-teal-100">
-    <h1 class="text-lg font-bold">about</h1>
-    <p>
-        Lorem ipsum dolor <span highlight>sit amet consectetur adipisicing elit.</span> Iusto vitae omnis nobis sequi sed inventore laborum aperiam tenetur fugit maxime autem nisi blanditiis neque molestiae vero, nihil vel voluptatem? Voluptatum?
-    </p>
-    <p> 
-        Numero de clientes
-        <app-counter [duration]="duration()" [message]="message()" *ngIf="duration() > 0" /> 
-    </p>
-    <div>
+  <h1 class="text-lg font-bold">about</h1>
+  <p>
+    Lorem ipsum dolor <span highlight>sit amet consectetur adipisicing elit.</span> Iusto vitae omnis nobis sequi sed inventore laborum aperiam tenetur fugit maxime autem nisi blanditiis neque molestiae vero, nihil vel voluptatem? Voluptatum?
+  </p>
+  <p>
+    Numero de clientes
+    @if (duration() > 0) {
+      <app-counter [duration]="duration()" [message]="message()" />
+    }
+  </p>
+  <div>
 
-    </div>
+  </div>
 </div>
 
 <app-wave-audio audioUrl="src/assets/Recording.m4a" />
