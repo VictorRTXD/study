@@ -1,42 +1,30 @@
 import { faker } from "@faker-js/faker";
 
-class ProductsService {
-    constructor() {
-        this.products = []
-        this.generate()
+class ProductService {
+  constructor() {
+    this.products = [];
+    this.generate();
+  }
+
+  generate() {
+    for (let i = 0; i < 100; i++) {
+      this.products.push({
+        id: faker.datatype.uuid(), 
+        name: faker.commerce.productName(), 
+        price: faker.commerce.price(),
+      });
     }
+  }
 
-    generate() {
-        const limit = 100;
-        for (let index = 0; index < limit; index++) {
-            this.products.push({
-                name: faker.commerce.productName(),
-                price: parseInt(faker.commerce.price()),
-                image: faker.image.url(),
-                id: faker.string.uuid()
-            })
-        }
-    } 
+  find() {
+    return this.products;
+  }
 
-    create() {
+  findOne(id) {
+    return this.products.find(item => item.id === id);
+  }
 
-    }
-
-    find() {
-        return this.products
-    }
-
-    findOne() {
-        
-    }
-
-    update() {
-        
-    }
-
-    delete() {
-        
-    }
+  // Métodos adicionales como crear, editar y eliminar
 }
 
-export default ProductsService
+module.exports = ProductService;
